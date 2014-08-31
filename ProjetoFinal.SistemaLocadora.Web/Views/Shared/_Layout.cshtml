@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Locadora Oliveira", "Index", "Home", null, new { @class = "navbar-brand" })                
+            </div>
+            <div class="collapse navbar-collapse" style="">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Acervos", "Index", "Acervos")</li>
+                    <li>@Html.ActionLink("Plataformas", "Index", "Plataformas")</li>
+                    <li>@Html.ActionLink("Clientes", "Index", "Clientes")</li>
+                    <li>@Html.ActionLink("Filmes", "Index", "Filmes")</li>
+                    <li>@Html.ActionLink("Jogos", "Index", "Jogos")</li>
+                    <li>@Html.ActionLink("Categoria","Index", "Categorias")</li>
+                    <li>@Html.ActionLink("Usuarios", "Index", "Usuarios")</li>
+                    <li>@Html.ActionLink("Permissões", "Index", "Permissoes")</li>
+                    <li>@Html.ActionLink("Logout", "Logout", "Account")</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="col-md-12">
+            <div class="center-block text-center">
+                <h1>Locadora Oliveira</h1>
+                <p class="lead">Tudo para seu lazer !</p>
+            </div>            
+            <div class="container">
+                @RenderBody()
+                <hr />
+                <footer>
+                    <p>&copy; @DateTime.Now.Year - Locadora Oliveira</p>
+                </footer>
+
+            </div>
+            <!--/container-->
+        </div>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

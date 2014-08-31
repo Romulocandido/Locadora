@@ -1,0 +1,39 @@
+﻿@model IEnumerable<ProjetoFinal.SistemaLocadora.Dominio.ProdutoExibir>
+
+@{
+    ViewBag.Title = "Locadora Oliveira";
+}
+
+<div class="menu row">
+    @*<div class="product col-sm-6">
+            <a href="#">
+                <img class="img-responsive" src="@Url.Content("~/Content/images/filme.jpeg")"><i class="btn btn-product fa fa-star"></i></a>
+            <hr>
+            <h2>Filme destaque</h2>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate.
+                        Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis
+                        dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan.
+                        Aliquam in felis sit amet augue.
+            </p>
+            <hr>
+            <h2 class="text-right">R$ 12</h2>
+            <button class="btn btn-primary btn-lg ">Adicionar</button>
+            <hr>
+        </div>*@
+    <div class="col-sm-12">
+        <div class="productsrow">
+            @foreach (var item in Model)
+            {
+                <div class="product menu-category">
+                    <div class="menu-category-name list-group-item active">@Html.DisplayFor(modelItem => item.Categoria) <br />
+                    @Html.DisplayFor(modelItem => item.Nome)</div>
+                    <div class="product-image">
+                        <img class="product-image menu-item list-group-item" src="@Url.Content(item.Imagem)">
+                    </div>
+                    <a href="#" class="menu-item list-group-item">@Html.DisplayFor(modelItem => item.Quantidade)<span class="badge">R$ @Html.DisplayFor(modelItem => item.Valor)</span></a>
+                </div>
+            }
+        </div>
+    </div>
+</div>

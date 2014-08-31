@@ -1,0 +1,45 @@
+﻿@model IEnumerable<ProjetoFinal.SistemaLocadora.Dominio.Usuario>
+
+@{
+    ViewBag.Title = "Usuários";
+}
+
+<h2>Usuários</h2>
+
+<p>
+    @Html.ActionLink("Novo Usuário", "Cadastrar")
+</p>
+<table class="table table-hover">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Username)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Username)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Editar", new { id = item.Id }) |
+                @Html.ActionLink("Deletar", "Deletar", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+</table>

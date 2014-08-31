@@ -1,0 +1,33 @@
+﻿@model IEnumerable<ProjetoFinal.SistemaLocadora.Dominio.Plataforma>
+
+@{
+    ViewBag.Title = "Plataformas";
+}
+
+<h2>Plataformas</h2>
+
+<p>
+    @Html.ActionLink("Nova plataforma", "Cadastrar")
+</p>
+<table class="table table-hover">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Console)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Console)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Editar", new { id = item.Id }) |
+                @Html.ActionLink("Deletar", "Deletar", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+</table>

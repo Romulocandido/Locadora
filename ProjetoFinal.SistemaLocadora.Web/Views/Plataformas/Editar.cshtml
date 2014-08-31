@@ -1,0 +1,32 @@
+﻿@model ProjetoFinal.SistemaLocadora.Dominio.Plataforma
+
+@{
+    ViewBag.Title = "Editar";
+}
+
+<h2>Editar</h2>
+
+@using (Html.BeginForm("Editar", "Plataformas", FormMethod.Post, new { @role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    @Html.HiddenFor(model => model.Id)
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Console)
+        @Html.TextBoxFor(model => model.Console, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Console)
+    </div>
+
+    <button type="Submit" class="btn btn-default">Editar</button>
+
+}
+
+<div>
+    @Html.ActionLink("Voltar para lista", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

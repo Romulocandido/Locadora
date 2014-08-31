@@ -1,0 +1,36 @@
+﻿@model ProjetoFinal.SistemaLocadora.Dominio.Produto
+
+@{
+    ViewBag.Title = "Dano";
+}
+
+<h2>Dano</h2>
+
+@using (Html.BeginForm("Dano", "Acervos", FormMethod.Post, new { @role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    @Html.HiddenFor(model => model.Id)
+
+    <div class="form-group">
+        @Html.DisplayFor(model => model.Nome)
+    </div>
+    <div class="form-group">
+        @Html.Label("Motivo")
+        @Html.TextBox("Motivo")
+    </div>
+    <div class="form-group">
+        @Html.Label("Quantidade")
+        @Html.TextBox("Quantidade", 1)
+    </div>
+
+    <button type="Submit" class="btn btn-default">Informar</button>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,71 @@
+﻿@model IEnumerable<ProjetoFinal.SistemaLocadora.Dominio.Filme>
+
+@{
+    ViewBag.Title = "Filmes";
+}
+
+<script type="text/javascript">
+    ShowModelPopUp = function (id) {
+        window.showModalDialog(id, "WindowPopup", 'width=400px,height=400px');
+    }
+</script>
+
+
+
+<h2>Filmes</h2>
+
+<p>
+    @Html.ActionLink("Novo Filme", "Cadastrar")
+</p>
+<table class="table table-hover">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Diretor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Atores)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Categoria)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Imagem)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Valor)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Diretor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Atores)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Categoria.Nome)
+            </td>
+            <td>
+                <input type="button" id="@Url.Content(item.Imagem)" value="@Html.DisplayFor(modelitem => item.Imagem)" onclick="ShowModelPopUp(this.id);" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Valor)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Editar", new { id = item.Id }) |
+                @Html.ActionLink("Deletar", "Deletar", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+</table>
